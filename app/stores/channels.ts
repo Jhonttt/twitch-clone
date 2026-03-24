@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import type { Stream } from '~~/types/channel'
+import type { Category } from '~~/types/category'
 
 export const useChannelsStore = defineStore('channels', () => {
   const isOpen = ref(true)
@@ -221,5 +222,77 @@ export const useChannelsStore = defineStore('channels', () => {
     },
   ])
 
-  return { channels, isOpen, streams }
+  const categories = ref<Category[]>([
+    {
+      id: 1,
+      name: 'Just Chatting',
+      viewers: 285000,
+      thumbnail: 'https://placehold.co/140x190',
+      tags: ['IRL'],
+    },
+    {
+      id: 2,
+      name: 'Software & Game Dev',
+      viewers: 21000,
+      thumbnail: 'https://placehold.co/140x190',
+      tags: ['Software', 'IRL'],
+    },
+    {
+      id: 3,
+      name: 'Farming Simulator 25',
+      viewers: 3600,
+      thumbnail: 'https://placehold.co/140x190',
+      tags: ['Simulation'],
+    },
+    {
+      id: 4,
+      name: 'S.T.A.L.K.E.R. 2',
+      viewers: 1400,
+      thumbnail: 'https://placehold.co/140x190',
+      tags: ['Gaming'],
+    },
+    {
+      id: 5,
+      name: 'Towers of Aghasba',
+      viewers: 23000,
+      thumbnail: 'https://placehold.co/140x190',
+      tags: ['Gaming'],
+    },
+    {
+      id: 6,
+      name: 'Flight Simulator 2024',
+      viewers: 12000,
+      thumbnail: 'https://placehold.co/140x190',
+      tags: ['Simulation'],
+    },
+    {
+      id: 7,
+      name: 'League of Legends',
+      viewers: 180000,
+      thumbnail: 'https://placehold.co/140x190',
+      tags: ['Esports', 'Gaming'],
+    },
+    {
+      id: 8,
+      name: 'Valorant',
+      viewers: 95000,
+      thumbnail: 'https://placehold.co/140x190',
+      tags: ['Esports', 'Gaming'],
+    },
+    {
+      id: 9,
+      name: 'Minecraft',
+      viewers: 72000,
+      thumbnail: 'https://placehold.co/140x190',
+      tags: ['Gaming'],
+    },
+    {
+      id: 10,
+      name: 'Chess',
+      viewers: 8400,
+      thumbnail: 'https://placehold.co/140x190',
+      tags: ['Esports'],
+    },
+  ])
+  return { channels, isOpen, streams, categories }
 })
