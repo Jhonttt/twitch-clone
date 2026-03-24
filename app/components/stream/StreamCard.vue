@@ -34,7 +34,7 @@
             {{ stream.title }}
           </h2>
           <p class="text-xs text-gray-400 truncate">{{ stream.streamer }}</p>
-          <p class="text-xs text-gray-400">{{ stream.category }}</p>
+          <p class="text-xs text-gray-400 truncate">{{ stream.category }}</p>
           <ul class="flex gap-2 text-xs mt-1 overflow-hidden">
             <li
               v-for="tag in stream.tags"
