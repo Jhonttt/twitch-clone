@@ -20,6 +20,7 @@ export default {
         'test',
         'design',
         'documentation',
+        'comp',
       ],
     ],
   },
