@@ -197,6 +197,28 @@ export const useChannelsStore = defineStore('channels', () => {
       avatar: 'https://placehold.co/32x32',
       tags: ['Español', 'Programación'],
     },
+    {
+      id: 11,
+      title: 'Open source en vivo - PR reviews',
+      streamer: 'Outconsumer',
+      category: 'Software & Game Dev',
+      viewers: 980,
+      isLive: false,
+      thumbnail: 'https://placehold.co/320x180',
+      avatar: 'https://placehold.co/32x32',
+      tags: ['Español', 'Programación'],
+    },
+    {
+      id: 12,
+      title: 'Open source en vivo - PR reviews',
+      streamer: 'Outconsumer',
+      category: 'Software & Game Dev',
+      viewers: 980,
+      isLive: false,
+      thumbnail: 'https://placehold.co/320x180',
+      avatar: 'https://placehold.co/32x32',
+      tags: ['Español', 'Programación'],
+    },
   ])
 
   return { channels, isOpen, streams }
