@@ -293,6 +293,20 @@ export const useChannelsStore = defineStore('channels', () => {
       thumbnail: 'https://placehold.co/140x190',
       tags: ['Esports'],
     },
+    {
+      id: 11,
+      name: 'Grand Theft Auto V',
+      viewers: 110000,
+      thumbnail: 'https://placehold.co/140x190',
+      tags: ['Gaming', 'IRL'],
+    },
+    {
+      id: 12,
+      name: 'Fortnite',
+      viewers: 88000,
+      thumbnail: 'https://placehold.co/140x190',
+      tags: ['Gaming', 'Esports'],
+    },
   ])
   return { channels, isOpen, streams, categories }
 })

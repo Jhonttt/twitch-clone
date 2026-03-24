@@ -65,7 +65,7 @@
     >
       <StreamCard v-for="stream in visibleStreams" :key="stream.id" :stream="stream" />
     </div>
-    <footer class="relative flex justify-center mt-4">
+    <footer class="relative flex justify-center my-6">
       <div class="absolute inset-x-0 top-1/2 border-t border-bg-border" />
       <a
         href="#"

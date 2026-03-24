@@ -247,5 +247,7 @@ export default {
     },
   },
 
+  safelist: ['grid-cols-8', 'grid-cols-10', 'grid-cols-12'],
+
   plugins: [],
 }
