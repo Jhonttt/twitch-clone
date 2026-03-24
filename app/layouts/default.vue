@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col h-screen bg-bg-base text-text-primary">
-    <LayoutAppNavbar />
+    <LayoutAppTopBar />
     <div class="flex flex-1 overflow-hidden">
       <LayoutAppSidebar />
 
