@@ -1,7 +1,5 @@
-<script setup lang="ts"></script>
-
 <template>
-  <header class="bg-bg-alt flex justify-between items-center px-8 py-3">
+  <header class="bg-bg-alt flex justify-between items-center px-8 py-3 shadow mb-5">
     <div class="flex items-center justify-center gap-4">
       <div class="flex items-center justify-center gap-3">
         <UiLogoTwitch class="size-8" />
