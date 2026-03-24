@@ -41,7 +41,7 @@
               :key="tag"
               class="bg-tag-bg rounded-full px-1 py-0.5 shrink-0"
             >
-              {{ tag }}
+              <UiTag :label="tag" />
             </li>
           </ul>
         </div>
