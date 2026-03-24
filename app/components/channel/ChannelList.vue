@@ -1,5 +1,6 @@
 <script setup lang="ts">
   const isOpen = ref(true)
+  const channelStore = useChannelsStore()
 </script>
 
 <template>
@@ -14,9 +15,11 @@
   </header>
 
   <ul class="flex flex-col gap-2">
-    <ChannelItem :is-open="isOpen" />
-    <ChannelItem :is-open="isOpen" />
-    <ChannelItem :is-open="isOpen" />
-    <ChannelItem :is-open="isOpen" />
+    <ChannelItem
+      v-for="channel in channelStore.channels"
+      :key="channel.id"
+      :channel="channel"
+      :is-open="isOpen"
+    />
   </ul>
 </template>
