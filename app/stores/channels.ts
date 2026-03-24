@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 
 export const useChannelsStore = defineStore('channels', () => {
+  const isOpen = ref(true)
   const channels = ref([
     {
       id: 1,
@@ -84,5 +85,5 @@ export const useChannelsStore = defineStore('channels', () => {
     },
   ])
 
-  return { channels }
+  return { channels, isOpen }
 })
