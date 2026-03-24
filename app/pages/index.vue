@@ -10,5 +10,11 @@
       :streams="channelStore.streams"
       :is-open="channelStore.isOpen"
     />
+    <CategoryCards
+      headline="Categories"
+      text="we think you'll like"
+      :categories="channelStore.categories"
+      :is-open="channelStore.isOpen"
+    />
   </main>
 </template>
