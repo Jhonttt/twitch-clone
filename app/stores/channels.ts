@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import type { Stream } from '~~/types/channel'
 
 export const useChannelsStore = defineStore('channels', () => {
   const isOpen = ref(true)
@@ -85,5 +86,118 @@ export const useChannelsStore = defineStore('channels', () => {
     },
   ])
 
-  return { channels, isOpen }
+  const streams = ref<Stream[]>([
+    {
+      id: 1,
+      title: 'BARCELONA 4 REAL MADRID 0 | ¡HANSI FLICK ES UN GENIO!',
+      streamer: 'Ibai',
+      category: 'Just Chatting',
+      viewers: 132000,
+      isLive: true,
+      thumbnail: 'https://placehold.co/320x180',
+      avatar: 'https://placehold.co/32x32',
+      tags: ['Español', 'DropsActivados'],
+    },
+    {
+      id: 2,
+      title: 'GTA RP - El mejor servidor de España',
+      streamer: 'AuronPlay',
+      category: 'GTA V',
+      viewers: 89400,
+      isLive: true,
+      thumbnail: 'https://placehold.co/320x180',
+      avatar: 'https://placehold.co/32x32',
+      tags: ['Español', 'IRL'],
+    },
+    {
+      id: 3,
+      title: 'RANKED hasta Challenger o me rajo el pelo',
+      streamer: 'Rojuu',
+      category: 'League of Legends',
+      viewers: 9800,
+      isLive: true,
+      thumbnail: 'https://placehold.co/320x180',
+      avatar: 'https://placehold.co/32x32',
+      tags: ['Español'],
+    },
+    {
+      id: 4,
+      title: 'Resident Evil 4 Remake - Hardcore sin morir',
+      streamer: 'Knekro',
+      category: 'Resident Evil',
+      viewers: 3200,
+      isLive: false,
+      thumbnail: 'https://placehold.co/320x180',
+      avatar: 'https://placehold.co/32x32',
+      tags: ['Español', 'DropsActivados'],
+    },
+    {
+      id: 5,
+      title: 'Construyendo un clon de Twitch en directo',
+      streamer: 'Midudev',
+      category: 'Software & Game Dev',
+      viewers: 2300,
+      isLive: true,
+      thumbnail: 'https://placehold.co/320x180',
+      avatar: 'https://placehold.co/32x32',
+      tags: ['Español', 'Programación'],
+    },
+    {
+      id: 6,
+      title: 'Torneo de ajedrez con suscriptores',
+      streamer: 'Rivers_gg',
+      category: 'Chess',
+      viewers: 4100,
+      isLive: true,
+      thumbnail: 'https://placehold.co/320x180',
+      avatar: 'https://placehold.co/32x32',
+      tags: ['Español'],
+    },
+    {
+      id: 7,
+      title: 'Valorant ranked con viewers - !discord',
+      streamer: 'Spok',
+      category: 'Valorant',
+      viewers: 210,
+      isLive: false,
+      thumbnail: 'https://placehold.co/320x180',
+      avatar: 'https://placehold.co/32x32',
+      tags: ['Español', 'DropsActivados'],
+    },
+    {
+      id: 8,
+      title: 'FIFA 25 - Ultimate Team grinding',
+      streamer: 'TheGrefg',
+      category: 'FIFA 25',
+      viewers: 41000,
+      isLive: true,
+      thumbnail: 'https://placehold.co/320x180',
+      avatar: 'https://placehold.co/32x32',
+      tags: ['Español'],
+    },
+    {
+      id: 9,
+      title: 'Fortnite con los mejores del mundo',
+      streamer: 'Gaymer_Chris',
+      category: 'Fortnite',
+      viewers: 8700,
+      isLive: true,
+      thumbnail: 'https://placehold.co/320x180',
+      avatar: 'https://placehold.co/32x32',
+      tags: ['Español', 'DropsActivados'],
+    },
+    {
+      id: 10,
+      title: 'Open source en vivo - PR reviews',
+      streamer: 'Outconsumer',
+      category: 'Software & Game Dev',
+      viewers: 980,
+      isLive: false,
+      thumbnail: 'https://placehold.co/320x180',
+      avatar: 'https://placehold.co/32x32',
+      tags: ['Español', 'Programación'],
+    },
+  ])
+
+  return { channels, isOpen, streams }
 })
