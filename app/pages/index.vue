@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const { isOpen, categories } = useChannelsStore()
+  const { isOpen } = useChannelsStore()
   const { data, status, error } = await useFetch('/api/streams')
   const streams = computed(() => data.value?.data ?? [])
 </script>
@@ -15,12 +15,12 @@
         :streams="streams"
         :is-open="isOpen"
       />
-      <CategoryCards
+      <!-- <CategoryCards
         headline="Categories"
         text="we think you'll like"
         :categories="categories"
         :is-open="isOpen"
-      />
+      /> -->
     </div>
   </main>
 </template>
