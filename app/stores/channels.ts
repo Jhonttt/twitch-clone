@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
-import type { Stream } from '~~/types/channel'
-import type { Category } from '~~/types/category'
+import type { Channel, Stream } from '~~/types/channel'
+import type { Category, NavCategory } from '~~/types/category'
 
 export const useChannelsStore = defineStore('channels', () => {
   const isOpen = ref(true)
-  const channels = ref([
+  const channels = ref(<Channel[]>[
     {
       id: 1,
       name: 'Ibai',
@@ -308,5 +308,13 @@ export const useChannelsStore = defineStore('channels', () => {
       tags: ['Gaming', 'Esports'],
     },
   ])
-  return { channels, isOpen, streams, categories }
+
+  const navCategories = ref<NavCategory[]>([
+    { id: 1, name: 'Games', icon: 'Gaming' },
+    { id: 2, name: 'IRL', icon: 'Helmet' },
+    { id: 3, name: 'Music & DJs', icon: 'Microphone' },
+    { id: 4, name: 'Creative', icon: 'Creative' },
+    { id: 5, name: 'Esports', icon: 'Trophy' },
+  ])
+  return { channels, isOpen, streams, categories, navCategories }
 })
