@@ -10,7 +10,7 @@
 
 <template>
   <li>
-    <a href="#" class="flex items-center gap-3 px-6">
+    <NuxtLink :href="channel.name" class="flex items-center gap-3 px-6">
       <img :src="channel.avatar" alt="" class="rounded-full size-8" />
       <div v-if="isOpen" class="flex-col justify-center flex-1 hidden lg:flex">
         <div class="flex items-center justify-between">
@@ -22,6 +22,6 @@
         </div>
         <p class="text-sm text-text-muted leading-tight">{{ channel.category }}</p>
       </div>
-    </a>
+    </NuxtLink>
   </li>
 </template>

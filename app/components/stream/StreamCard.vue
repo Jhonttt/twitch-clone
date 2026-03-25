@@ -9,7 +9,7 @@
 
 <template>
   <article>
-    <a href="" class="flex flex-col gap-2">
+    <NuxtLink :href="stream.streamer" class="flex flex-col gap-2">
       <div class="relative">
         <img :src="stream.thumbnail" alt="" class="w-full" />
         <span
@@ -46,6 +46,6 @@
           </ul>
         </div>
       </div>
-    </a>
+    </NuxtLink>
   </article>
 </template>

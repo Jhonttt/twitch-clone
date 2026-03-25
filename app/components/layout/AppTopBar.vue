@@ -1,10 +1,10 @@
 <template>
   <header class="bg-bg-alt flex justify-between items-center px-8 py-3 shadow">
     <div class="flex items-center justify-center gap-4">
-      <div class="flex items-center justify-center gap-3">
+      <NuxtLink href="/" class="flex items-center justify-center gap-3">
         <UiLogoTwitch class="size-8" />
         <p>MIDUTCH</p>
-      </div>
+      </NuxtLink>
       <a href="#">
         <UiMore class="fill-text-primary" />
       </a>
