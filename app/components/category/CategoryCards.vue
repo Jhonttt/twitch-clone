@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import type { Category } from '~~/types/category'
+  const store = useChannelsStore()
 
   const props = defineProps<{
     headline: string
@@ -27,6 +28,23 @@
     }
   })
 
+  const navCols = computed(() => {
+    const width = windowWidth.value
+    if (props.isOpen) {
+      if (width >= 1280) return 5
+      if (width >= 1024) return 4
+      if (width >= 768) return 4
+      if (width >= 640) return 3
+      return 2
+    } else {
+      if (width >= 1280) return 5
+      if (width >= 1024) return 5
+      if (width >= 768) return 4
+      if (width >= 640) return 3
+      return 2
+    }
+  })
+
   const showAll = ref(false)
 
   const onResize = () => {
@@ -45,6 +63,10 @@
   const visibleCategories = computed(() => {
     const limit = showAll.value ? cols.value * 2 : cols.value
     return props.categories.slice(0, limit)
+  })
+
+  const visibleNavCategories = computed(() => {
+    return store.navCategories.slice(0, navCols.value)
   })
 </script>
 
@@ -65,6 +87,21 @@
     >
       <CategoryCard v-for="category in visibleCategories" :key="category.id" :category="category" />
     </div>
-    <footer></footer>
+    <footer
+      class="flex gap-6 justify-between mr-4 items-center pr-4"
+      :class="[
+        'grid gap-x-2 gap-y-5 mr-4 mb-3',
+        props.isOpen
+          ? 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5'
+          : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5',
+      ]"
+    >
+      <CategoryNav
+        v-for="nav in visibleNavCategories"
+        :key="nav.id"
+        :nav-categorie="nav"
+        :is-open="props.isOpen"
+      />
+    </footer>
   </section>
 </template>
