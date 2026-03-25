@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import type { Stream } from '~~/types/channel'
+  import type { TwitchStream } from '~~/types/channel'
 
   const props = defineProps<{
     headline: string
     text: string
-    streams: Stream[]
+    streams: TwitchStream[]
     isOpen: boolean
   }>()
 
