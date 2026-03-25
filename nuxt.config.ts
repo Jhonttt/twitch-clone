@@ -10,4 +10,9 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
+
+  runtimeConfig: {
+    twitchClientId: process.env.TWITCH_CLIENT_ID,
+    twitchClientSecret: process.env.TWITCH_CLIENT_SECRET,
+  },
 })
