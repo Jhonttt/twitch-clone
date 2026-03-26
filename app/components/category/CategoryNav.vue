@@ -18,7 +18,10 @@
 
 <template>
   <article class="w-full">
-    <a href="" class="relative flex items-center gap-1 bg-[#199AFC] pr-20 px-3 rounded py-2">
+    <a
+      href=""
+      class="relative flex items-center gap-1 bg-[#199AFC] pr-20 px-3 rounded py-2 hover:bg-[#19AFFF]"
+    >
       <h2 class="text-lg font-semibold truncate">
         {{ navCategorie.name }}
       </h2>

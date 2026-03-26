@@ -69,10 +69,12 @@
       <div class="absolute inset-x-0 top-1/2 border-t border-bg-border" />
       <a
         href="#"
-        class="relative flex items-center gap-1 bg-bg-base px-3 cursor-pointer"
+        class="relative flex items-center gap-1 bg-bg-base px-3 cursor-pointer hover:bg-bg-overlay rounded-full py-1.5 group"
         @click.prevent="showAll = !showAll"
       >
-        <p class="text-[#199AFC] text-sm">{{ showAll ? 'Show less' : 'Show more' }}</p>
+        <p class="text-[#199AFC] text-sm group-hover:text-text-primary">
+          {{ showAll ? 'Show less' : 'Show more' }}
+        </p>
         <UiDown
           :class="[
             'fill-text-primary size-4 transition-transform duration-300',

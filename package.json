@@ -28,6 +28,7 @@
     "@commitlint/config-conventional": "^20.5.0",
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@pinia/nuxt": "^0.11.3",
+    "@vueuse/nuxt": "^14.2.1",
     "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",

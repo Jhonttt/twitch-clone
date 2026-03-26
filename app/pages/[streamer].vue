@@ -19,8 +19,10 @@
     <a
       href="#"
       :class="[
-        'absolute z-10 transition-all duration-300',
-        channelStore.isOpenRight ? 'right-[310px] top-2' : 'right-2 top-2',
+        'absolute z-10 transition-all duration-300 hover:rounded-full flex items-center justify-center',
+        channelStore.isOpenRight
+          ? 'right-[298px] top-1.5 hover:bg-chat-hover size-8'
+          : 'right-2 top-3.5 hover:bg-chat-hover size-8',
       ]"
       @click="channelStore.isOpenRight = !channelStore.isOpenRight"
     >
@@ -59,7 +61,7 @@
             </span>
             <span v-if="viewersFormatted" class="flex items-center gap-1">
               <span class="w-2 h-2 rounded-full bg-red-500 inline-block" />
-              {{ viewersFormatted }} espectadores
+              {{ viewersFormatted }} viewers
             </span>
           </div>
         </div>

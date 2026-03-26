@@ -29,10 +29,14 @@
 
 <template>
   <header class="flex items-center justify-center gap-10 mb-3 px-4">
-    <p v-if="channelStore.isOpen" class="text-sm lg:block hidden">RECOMMENDED CHANNELS</p>
-    <a href="#" @click="channelStore.isOpen = !channelStore.isOpen">
+    <p v-if="channelStore.isOpen" class="text-sm xl:block hidden">RECOMMENDED CHANNELS</p>
+    <a
+      href="#"
+      class="items-center justify-center hover:rounded-full hover:bg-chat-hover hidden xl:flex size-8"
+      @click="channelStore.isOpen = !channelStore.isOpen"
+    >
       <UiCollapse
-        :class="['fill-white size-5 hidden lg:block', channelStore.isOpen ? '' : 'rotate-180']"
+        :class="['fill-white size-5', channelStore.isOpen ? '' : 'rotate-180']"
         class="transition-transform duration-300"
       />
     </a>

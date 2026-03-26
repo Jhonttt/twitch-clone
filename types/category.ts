@@ -1,11 +1,20 @@
 export type IconName = 'Gaming' | 'Helmet' | 'Microphone' | 'Creative' | 'Trophy'
 
-export interface Category {
-  id: number
+export interface TwitchCategory {
+  id: string
   name: string
-  viewers: number
-  thumbnail: string
-  tags: string[]
+  box_art_url: string
+  viewer_count?: number
+}
+
+export interface TwitchStream {
+  id: string
+  game_id: string
+  viewer_count: number
+}
+
+export interface TwitchResponse<T> {
+  data: T[]
 }
 
 export interface NavCategory {

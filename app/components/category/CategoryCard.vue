@@ -1,27 +1,24 @@
 <script setup lang="ts">
-  import type { Category } from '~~/types/category'
-  import { rounded } from '#imports'
-
+  import type { TwitchCategory } from '~~/types/category'
+  import { points } from '#imports'
   defineProps<{
-    category: Category
+    category: TwitchCategory
   }>()
 </script>
 
 <template>
   <article>
     <a href="" class="flex flex-col gap-2">
-      <img
-        src="https://placehold.co/140x190"
-        alt=""
-        class="w-full aspect-[3/4] object-cover rounded"
-      />
+      <img :src="category.box_art_url" alt="" class="w-full aspect-[3/4] object-cover rounded" />
 
       <div class="flex flex-col min-w-0">
-        <h2 class="text-sm font-semibold truncate">
+        <h2 class="text-sm font-semibold truncate hover:text-action-sub_bg">
           {{ category.name }}
         </h2>
-        <p class="text-xs text-gray-400 truncate">{{ rounded(category.viewers) }} viewers</p>
-        <ul class="flex gap-2 text-xs mt-1 overflow-hidden">
+        <p class="text-xs text-gray-400 truncate">
+          {{ points(category.viewer_count ?? 0) }} viewers
+        </p>
+        <!-- <ul class="flex gap-2 text-xs mt-1 overflow-hidden">
           <li
             v-for="tag in category.tags"
             :key="tag"
@@ -29,7 +26,7 @@
           >
             <UiTag :label="tag" />
           </li>
-        </ul>
+        </ul> -->
       </div>
     </a>
   </article>

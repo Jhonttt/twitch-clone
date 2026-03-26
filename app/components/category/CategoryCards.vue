@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  import type { Category } from '~~/types/category'
+  import type { TwitchCategory } from '~~/types/category'
   const store = useChannelsStore()
 
   const props = defineProps<{
     headline: string
     text: string
-    categories: Category[]
+    categories: TwitchCategory[]
     isOpen: boolean
   }>()
 
