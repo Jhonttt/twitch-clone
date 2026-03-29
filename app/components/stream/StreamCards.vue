@@ -1,14 +1,23 @@
 <script setup lang="ts">
   import type { TwitchStream } from '~~/types/channel'
+  import type { AsyncDataRequestStatus } from '#app'
 
   const props = defineProps<{
     headline: string
     text: string
     streams: TwitchStream[]
     isOpen: boolean
+    status?: AsyncDataRequestStatus
   }>()
 
-  const windowWidth = ref(0)
+  const windowWidth = ref(1280)
+
+  const skeletonCount = computed(() => {
+    if (props.isOpen) {
+      return 5
+    }
+    return 6
+  })
 
   const cols = computed(() => {
     const width = windowWidth.value
@@ -63,16 +72,23 @@
           : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6',
       ]"
     >
-      <StreamCard v-for="stream in visibleStreams" :key="stream.id" :stream="stream" />
+      <template v-if="props.status === 'pending' || props.status === 'idle'">
+        <StreamCardSkeleton v-for="n in skeletonCount" :key="n" />
+      </template>
+      <template v-else>
+        <StreamCard v-for="stream in visibleStreams" :key="stream.id" :stream="stream" />
+      </template>
     </div>
     <footer class="relative flex justify-center my-6">
       <div class="absolute inset-x-0 top-1/2 border-t border-bg-border" />
       <a
         href="#"
-        class="relative flex items-center gap-1 bg-bg-base px-3 cursor-pointer"
+        class="relative flex items-center gap-1 bg-bg-base px-3 cursor-pointer hover:bg-bg-overlay rounded-full py-1.5 group"
         @click.prevent="showAll = !showAll"
       >
-        <p class="text-[#199AFC] text-sm">{{ showAll ? 'Show less' : 'Show more' }}</p>
+        <p class="text-[#199AFC] text-sm group-hover:text-text-primary">
+          {{ showAll ? 'Show less' : 'Show more' }}
+        </p>
         <UiDown
           :class="[
             'fill-text-primary size-4 transition-transform duration-300',
