@@ -7,13 +7,13 @@
     data: streamerData,
     status: streamerStatus,
     error: streamerError,
-  } = await useFetch<{ data: TwitchStream[] }>('/api/streams')
+  } = useFetch<{ data: TwitchStream[] }>('/api/streams', { lazy: true, server: false })
 
   const {
     data: categoryData,
     status: categoryStatus,
     error: categoryError,
-  } = await useFetch<{ data: TwitchCategory[] }>('/api/categories')
+  } = useFetch<{ data: TwitchCategory[] }>('/api/categories', { lazy: true, server: false })
 
   const categories = computed(() => categoryData.value?.data ?? [])
 
@@ -26,38 +26,42 @@
 
 <template>
   <main class="mt-4">
-    <p v-if="streamerStatus === 'pending' || categoryStatus === 'pending'">Loading...</p>
-    <p v-else-if="streamerError || categoryError">Error</p>
+    <p v-if="streamerError || categoryError">Error</p>
     <div v-else>
       <StreamCards
         headline="Live channel"
         text="we think you'll like"
         :streams="firstSection"
         :is-open="useChannel.isOpen"
+        :status="streamerStatus"
       />
       <StreamCards
         headline="Live channel"
         text="we think you'll like"
         :streams="secondSection"
         :is-open="useChannel.isOpen"
+        :status="streamerStatus"
       />
       <CategoryCards
         headline="Categories"
         text="we think you'll like"
         :categories="categories"
         :is-open="useChannel.isOpen"
+        :status="categoryStatus"
       />
       <StreamCards
         headline="Live channel"
         text="we think you'll like"
         :streams="thirdSection"
         :is-open="useChannel.isOpen"
+        :status="streamerStatus"
       />
       <StreamCards
         headline="Live channel"
         text="we think you'll like"
         :streams="fourthSection"
         :is-open="useChannel.isOpen"
+        :status="streamerStatus"
       />
     </div>
   </main>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import type { TwitchCategory } from '~~/types/category'
+  import type { AsyncDataRequestStatus } from '#app'
   const store = useChannelsStore()
 
   const props = defineProps<{
@@ -7,9 +8,17 @@
     text: string
     categories: TwitchCategory[]
     isOpen: boolean
+    status?: AsyncDataRequestStatus
   }>()
 
-  const windowWidth = ref(0)
+  const windowWidth = ref(1280)
+
+  const skeletonCount = computed(() => {
+    if (props.isOpen) {
+      return 10
+    }
+    return 12
+  })
 
   const cols = computed(() => {
     const width = windowWidth.value
@@ -85,7 +94,16 @@
           : 'grid-cols-2 sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12',
       ]"
     >
-      <CategoryCard v-for="category in visibleCategories" :key="category.id" :category="category" />
+      <template v-if="props.status === 'pending' || props.status === 'idle'">
+        <CategoryCardSkeleton v-for="n in skeletonCount" :key="n" />
+      </template>
+      <template v-else>
+        <CategoryCard
+          v-for="category in visibleCategories"
+          :key="category.id"
+          :category="category"
+        />
+      </template>
     </div>
     <footer
       class="flex gap-6 justify-between mr-4 items-center pr-4"

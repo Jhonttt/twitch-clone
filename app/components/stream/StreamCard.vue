@@ -5,7 +5,7 @@
     stream: TwitchStream
   }>()
 
-  const { data, status, error } = await useFetch<ChannelPageData>(
+  const { data, status } = useLazyFetch<ChannelPageData>(
     () => `/api/channels/${props.stream.user_login}`
   )
 
@@ -27,8 +27,7 @@
 
 <template>
   <article>
-    <p v-if="status === 'pending'">Loading...</p>
-    <p v-else-if="error">Error 2</p>
+    <StreamCardSkeleton v-if="status === 'pending'" />
     <NuxtLink v-else :href="stream.user_name" class="flex flex-col gap-2">
       <div class="relative group">
         <div class="absolute inset-0 rounded-md" :style="{ backgroundColor: streamColor }" />
