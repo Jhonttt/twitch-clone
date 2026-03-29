@@ -1,15 +1,30 @@
 <script setup lang="ts">
   import type { TwitchCategory } from '~~/types/category'
   import { points } from '#imports'
-  defineProps<{
+
+  const props = defineProps<{
     category: TwitchCategory
   }>()
+
+  const categoryColor = computed(() => {
+    const colors = ['#9146FF', '#E91916', '#00C8AF', '#FF6B35', '#F72585', '#4CC9F0']
+
+    const hash = props.category.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
+    return colors[hash % colors.length]
+  })
 </script>
 
 <template>
   <article>
     <a href="" class="flex flex-col gap-2">
-      <img :src="category.box_art_url" alt="" class="w-full aspect-[3/4] object-cover rounded" />
+      <div class="relative group">
+        <div class="absolute inset-0 rounded" :style="{ backgroundColor: categoryColor }" />
+        <div
+          class="relative overflow-hidden rounded transition-transform duration-200 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
+        >
+          <img :src="category.box_art_url" alt="" class="w-full aspect-[3/4] object-cover" />
+        </div>
+      </div>
 
       <div class="flex flex-col min-w-0">
         <h2 class="text-sm font-semibold truncate hover:text-action-sub_bg">
@@ -18,15 +33,6 @@
         <p class="text-xs text-gray-400 truncate">
           {{ points(category.viewer_count ?? 0) }} viewers
         </p>
-        <!-- <ul class="flex gap-2 text-xs mt-1 overflow-hidden">
-          <li
-            v-for="tag in category.tags"
-            :key="tag"
-            class="bg-tag-bg rounded-full px-1 py-0.5 shrink-0"
-          >
-            <UiTag :label="tag" />
-          </li>
-        </ul> -->
       </div>
     </a>
   </article>
